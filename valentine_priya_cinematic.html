@@ -1,0 +1,168 @@
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Happy Valentine Priya</title>
+
+<style>
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: 'Segoe UI', sans-serif;
+}
+
+body {
+    background: black;
+    overflow: hidden;
+    color: white;
+}
+
+/* Cinematic Intro Screen */
+.intro {
+    position: absolute;
+    width: 100%;
+    height: 100vh;
+    background: radial-gradient(circle at center, #ff4f81, black 70%);
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+    animation: fadeOut 4s forwards;
+    animation-delay: 4s;
+}
+
+.intro h1 {
+    font-size: 40px;
+    letter-spacing: 3px;
+    animation: zoomIn 3s ease-in-out forwards;
+}
+
+@keyframes zoomIn {
+    from { transform: scale(0.3); opacity: 0; }
+    to { transform: scale(1); opacity: 1; }
+}
+
+@keyframes fadeOut {
+    to { opacity: 0; visibility: hidden; }
+}
+
+/* Main Content */
+.main {
+    position: absolute;
+    width: 100%;
+    height: 100vh;
+    background: linear-gradient(45deg, #ff758c, #ff7eb3);
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+    text-align: center;
+    opacity: 0;
+    animation: showMain 3s forwards;
+    animation-delay: 6s;
+}
+
+@keyframes showMain {
+    to { opacity: 1; }
+}
+
+.card {
+    background: rgba(255,255,255,0.15);
+    padding: 30px;
+    border-radius: 25px;
+    backdrop-filter: blur(15px);
+    max-width: 500px;
+    box-shadow: 0 10px 40px rgba(0,0,0,0.5);
+}
+
+h2 {
+    font-size: 30px;
+    margin-bottom: 15px;
+}
+
+.message {
+    font-size: 18px;
+    line-height: 1.6;
+}
+
+button {
+    margin-top: 20px;
+    padding: 12px 25px;
+    border-radius: 30px;
+    border: none;
+    background: white;
+    color: #ff4f81;
+    font-weight: bold;
+    cursor: pointer;
+    transition: 0.3s;
+}
+
+button:hover {
+    background: #ff4f81;
+    color: white;
+    transform: scale(1.05);
+}
+
+/* Floating sparkles */
+.sparkle {
+    position: absolute;
+    color: white;
+    font-size: 10px;
+    animation: floatUp linear infinite;
+}
+
+@keyframes floatUp {
+    from { transform: translateY(0); opacity: 1; }
+    to { transform: translateY(-100vh); opacity: 0; }
+}
+</style>
+</head>
+
+<body>
+
+<audio autoplay loop>
+    <source src="romantic.mp3" type="audio/mpeg">
+</audio>
+
+<div class="intro">
+    <h1>For Someone Very Special...</h1>
+</div>
+
+<div class="main">
+    <div class="card">
+        <h2>Happy Valentine’s Day Priya 💖</h2>
+        <div class="message">
+            Meri strong aur caring sister 😄 <br><br>
+            Tu meri life ki permanent supporter hai ✨ <br>
+            Teri smile se ghar ka mood set ho jata hai 😜 <br><br>
+            Aaj ka din meri favourite sister ke naam 🌹 <br><br>
+            — From Deep
+        </div>
+        <button onclick="surprise()">Click For Surprise 🎬</button>
+    </div>
+</div>
+
+<script>
+function surprise() {
+    alert("Tu hamesha aise hi khush reh Priya ✨");
+}
+
+function createSparkle() {
+    const sparkle = document.createElement("div");
+    sparkle.classList.add("sparkle");
+    sparkle.innerHTML = "✨";
+    sparkle.style.left = Math.random() * 100 + "vw";
+    sparkle.style.fontSize = Math.random() * 10 + 8 + "px";
+    sparkle.style.animationDuration = Math.random() * 3 + 3 + "s";
+    document.body.appendChild(sparkle);
+    setTimeout(() => sparkle.remove(), 6000);
+}
+
+setInterval(createSparkle, 200);
+</script>
+
+</body>
+</html>
